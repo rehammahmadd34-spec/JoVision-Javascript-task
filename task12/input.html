@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Object</title>
+</head>
+
+<body>
+
+    <input id="name" type="text" placeholder="Name">
+
+    <input id="age" type="text" placeholder="Age">
+
+    <button onclick="submitForm()">Submit</button>
+
+
+    <script>
+
+        function submitForm() {
+
+            let user = {
+                name: document.getElementById("name").value,
+                age: document.getElementById("age").value,
+                timestamp: new Date()
+            };
+
+
+            let { name, age, timestamp } = user;
+
+
+            window.alert(
+                "Your name is: " + name +
+                "\nYour age is: " + age +
+                "\nTimestamp: " + timestamp
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
