@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get IP</title>
+</head>
+
+<body>
+
+    <button id="ipButton" onclick="getIP()">Get ip</button>
+
+    <script>
+
+        function getIP() {
+
+            fetch("https://api.ipify.org/")
+                .then(response => {
+
+                    if (!response.ok) {
+                        throw new Error("Request failed");
+                    }
+
+                    return response.text();
+
+                })
+                .then(ip => {
+
+                    document.getElementById("ipButton").innerHTML = ip;
+
+                })
+                .catch(error => {
+
+                    window.alert(error);
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
