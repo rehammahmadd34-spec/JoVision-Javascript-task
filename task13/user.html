@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Age Prediction</title>
+</head>
+
+<body>
+
+    <input id="name" type="text" placeholder="Name">
+
+    <button onclick="getAge()">Submit</button>
+
+
+    <script>
+
+        function getAge() {
+
+            let name = document.getElementById("name").value;
+
+
+            fetch("https://api.agify.io?name=" + name)
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    let {name, age} = data;
+
+
+                    window.alert(
+                        "Your name is: " + name +
+                        "\nYour age is: " + age
+                    );
+
+                })
+
+                .catch(error => {
+                    window.alert(error);
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
